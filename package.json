@@ -1,0 +1,52 @@
+{
+  "name": "react-breakpoints",
+  "version": "1.0.0",
+  "description": "React hooks for getting the current media breakpoint and value",
+  "types": "dist/types/index.d.ts",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "run-s build:types build:cjs build:esm",
+    "build:types": "tsc -p tsconfig.types.json",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:esm": "tsc -p tsconfig.esm.json",
+    "lint": "eslint . --fix",
+    "format": "prettier . --write",
+    "test": "jest --passWithNoTests",
+    "watch": "tsc --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liuqiang1357/react-breakpoints.git"
+  },
+  "keywords": [
+    "react",
+    "breakpoints",
+    "media-query"
+  ],
+  "author": "liuqiang <liuqiang1357@163.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/liuqiang1357/react-breakpoints/issues"
+  },
+  "homepage": "https://github.com/liuqiang1357/react-breakpoints",
+  "devDependencies": {
+    "@types/jest": "^27.4.1",
+    "@typescript-eslint/eslint-plugin": "^5.14.0",
+    "@typescript-eslint/parser": "^5.14.0",
+    "eslint": "^8.11.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-prettier": "^4.0.0",
+    "jest": "^27.5.1",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.5.1",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^27.1.3",
+    "typescript": "^4.6.2"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

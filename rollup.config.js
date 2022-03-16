@@ -5,7 +5,7 @@ import typescript from '@rollup/plugin-typescript';
 import pkg from './package.json';
 
 const input = './src/index.ts';
-const external = [...Object.keys({ ...pkg.dependencies, ...pkg.peerDependencies })];
+const external = [...Object.keys(pkg.dependencies), ...Object.keys(pkg.peerDependencies)];
 
 export default [
   // CommonJS (for Node)

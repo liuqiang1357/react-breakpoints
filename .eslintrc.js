@@ -1,25 +1,20 @@
 module.exports = {
   root: true,
-  extends: [
-    'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:prettier/recommended',
-  ],
+  env: {
+    es6: true,
+    node: true,
+    jest: true,
+  },
+  extends: ['eslint:recommended', 'plugin:prettier/recommended'],
   parserOptions: {
-    project: './tsconfig.json',
+    ecmaVersion: 6,
+    sourceType: 'module',
   },
   plugins: ['import'],
   rules: {
     eqeqeq: ['error', 'always', { null: 'never' }],
     'no-console': ['warn', { allow: ['warn', 'error'] }],
     'sort-imports': ['error', { ignoreDeclarationSort: true, ignoreCase: true }],
-    '@typescript-eslint/explicit-module-boundary-types': [
-      'warn',
-      { allowArgumentsExplicitlyTypedAsAny: true },
-    ],
-    '@typescript-eslint/no-explicit-any': 'off',
-    '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
-    '@typescript-eslint/strict-boolean-expressions': ['error'],
     'import/order': [
       'error',
       {
@@ -30,5 +25,22 @@ module.exports = {
       },
     ],
   },
-  ignorePatterns: ['/dist', '/*.js'],
+  overrides: [
+    {
+      files: ['*.ts'],
+      extends: ['plugin:@typescript-eslint/recommended'],
+      parserOptions: {
+        project: './tsconfig.json',
+      },
+      rules: {
+        '@typescript-eslint/explicit-module-boundary-types': [
+          'warn',
+          { allowArgumentsExplicitlyTypedAsAny: true },
+        ],
+        '@typescript-eslint/no-explicit-any': 'off',
+        '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
+        '@typescript-eslint/strict-boolean-expressions': ['error'],
+      },
+    },
+  ],
 };

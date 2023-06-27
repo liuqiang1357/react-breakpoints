@@ -5,7 +5,7 @@ import typescript from '@rollup/plugin-typescript';
 import pkg from './package.json';
 
 const input = './src/index.ts';
-const external = [...Object.keys(pkg.dependencies), ...Object.keys(pkg.peerDependencies)];
+const external = ['react'];
 
 export default [
   // CommonJS (for Node)
@@ -25,7 +25,7 @@ export default [
   // browser-friendly UMD build
   {
     input,
-    external: ['react'],
+    external,
     plugins: [resolve(), commonjs(), typescript()],
     output: {
       name: 'reactBreakpoints',

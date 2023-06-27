@@ -1,6 +1,6 @@
 {
   "name": "@liuqiang1357/react-breakpoints",
-  "version": "1.0.4",
+  "version": "1.0.6",
   "description": "React hooks for getting the current media breakpoint and value",
   "types": "dist/types/index.d.ts",
   "main": "dist/cjs/index.js",
